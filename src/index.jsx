@@ -4,7 +4,7 @@ import './style.css';
 import Header from './Header/index';
 import Footer from './Footer/index';
 import Home from './Home/index';
-import Reservation from './Reservation';
+import Reservation from './Reservation/index';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 const App = () => {
