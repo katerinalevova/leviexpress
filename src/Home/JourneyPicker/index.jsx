@@ -6,7 +6,7 @@ import CityOptions from './CityOptions/index';
 import DatesOptions from './DatesOptions/index';
 import { useEffect } from 'react';
 
-const JourneyPicker = () => {
+const JourneyPicker = (onJourneyChange) => {
   const [fromCity, setFromCity] = useState('');
   const [toCity, setToCity] = useState('');
   const [date, setDate] = useState('');
@@ -28,6 +28,11 @@ const JourneyPicker = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log(fromCity, toCity, date);
+    fetch(
+      `https://leviexpress-backend.herokuapp.com/api/journey?fromCity=${fromCity}&toCity=${toCity}&date=${date}`,
+    )
+      .then((resp) => resp.json())
+      .then((json) => onJourneyChange(json.data));
   };
 
   const handleSelect = (e) => {
