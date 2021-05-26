@@ -1,8 +1,14 @@
 import React from 'react';
 import JourneyPicker from './JourneyPicker/index';
+import { useState } from 'react';
 
 const Home = () => {
-  const handleJourneyChange = () => {};
+  const [journey, setJourney] = useState(null);
+
+  const handleJourneyChange = (journey) => {
+    setJourney(journey);
+    console.log(`Nalezeno spojení s id: ${journey}`);
+  };
 
   return (
     <>
