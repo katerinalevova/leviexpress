@@ -1,8 +1,7 @@
 import React from 'react';
-import { useState } from 'react';
 import './style.css';
 
-const JourneyDetail = () => {
+const JourneyDetail = ({ journey }) => {
   return (
     <>
       <div className="journey-detail container">

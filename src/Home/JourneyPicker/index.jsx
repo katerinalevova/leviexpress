@@ -12,6 +12,7 @@ const JourneyPicker = ({ onJourneyChange }) => {
   const [date, setDate] = useState('');
   const [cities, setCities] = useState([]);
   const [dates, setDates] = useState([]);
+  const [journey, setJourney] = useState([]);
 
   useEffect(() => {
     fetch('https://leviexpress-backend.herokuapp.com/api/cities')
@@ -25,14 +26,18 @@ const JourneyPicker = ({ onJourneyChange }) => {
       .then((json) => setDates(json.data));
   }, []);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(fromCity, toCity, date);
+  useEffect(() => {
     fetch(
       `https://leviexpress-backend.herokuapp.com/api/journey?fromCity=${fromCity}&toCity=${toCity}&date=${date}`,
     )
       .then((resp) => resp.json())
-      .then((json) => onJourneyChange(json.data.journeyId));
+      .then((json) => setJourney(json.data.journeyId));
+  }, [fromCity, toCity, date]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(fromCity, toCity, date);
+    console.log(`Nalezeno spojení s id: ${journey}`);
   };
 
   const handleSelect = (e) => {

@@ -20,7 +20,6 @@ const Home = () => {
 
   const handleJourneyChange = (journey) => {
     setJourney(journey);
-    console.log(`Nalezeno spojení s id: ${journey}`);
     if (journey !== null) {
       return <JourneyDetail />;
     } else {
