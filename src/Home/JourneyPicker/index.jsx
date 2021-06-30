@@ -38,6 +38,7 @@ const JourneyPicker = ({ onJourneyChange }) => {
     event.preventDefault();
     console.log(fromCity, toCity, date);
     console.log(`Nalezeno spojení s id: ${journey}`);
+    onJourneyChange(journey);
   };
 
   const handleSelect = (e) => {
