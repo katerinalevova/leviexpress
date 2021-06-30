@@ -45,6 +45,7 @@ const JourneyPicker = ({ onJourneyChange }) => {
 
   const handleSelect3 = (e) => {
     setDate(e.target.value);
+    console.log(e.target.value);
   };
 
   return (
@@ -56,18 +57,21 @@ const JourneyPicker = ({ onJourneyChange }) => {
             <label>
               <div className="journey-picker__label">Odkud:</div>
               <select value={fromCity} onChange={handleSelect}>
+                <option></option>
                 <CityOptions cities={cities} />
               </select>
             </label>
             <label>
               <div className="journey-picker__label">Kam:</div>
               <select value={toCity} onChange={handleSelect2}>
+                <option></option>
                 <CityOptions cities={cities} />
               </select>
             </label>
             <label>
               <div className="journey-picker__label">Datum:</div>
-              <select value={date} onChange={handleSelect3}>
+              <select value={dates.dateBasic} onChange={handleSelect3}>
+                <option></option>
                 <DatesOptions dates={dates} />
               </select>
             </label>
